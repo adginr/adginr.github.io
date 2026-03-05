@@ -1,7 +1,270 @@
 ---
 import Layout from "../layouts/Base.astro";
+
+function duration(start: Date, end?: Date): string {
+  const to = end ?? new Date();
+  const months =
+    (to.getFullYear() - start.getFullYear()) * 12 +
+    (to.getMonth() - start.getMonth());
+  const yrs = Math.floor(months / 12);
+  const mos = months % 12;
+  const parts = [];
+  if (yrs > 0) parts.push(`${yrs} р.`);
+  if (mos > 0) parts.push(`${mos} міс.`);
+  return parts.join(" ");
+}
+
+function formatDate(d: Date): string {
+  return d.toLocaleDateString("uk-UA", { month: "short", year: "numeric" });
+}
+
+const techSkills = [
+  { label: "Мови програмування", value: "Python, JavaScript, TypeScript" },
+  { label: "Апаратне забезпечення", value: "Raspberry Pi (збирання та налаштування), прошивка мобільних пристроїв, збирання та програмування RC-машинок" },
+  { label: "Операційні системи", value: "Windows (основна), Linux" },
+  { label: "Веб-розробка", value: "React, SolidJS, Vue.js, Astro, Next.js" },
+  { label: "Аналітика даних", value: "Pandas, spaCy, NLP, Google Ads API" },
+  { label: "Інфраструктура", value: "Git, Linux CLI, REST API" },
+  { label: "Автоматизація", value: "Python-скрипти, парсинг, дашборди" },
+  { label: "Поверхневе знайомство", value: "C-подібні мови" },
+];
+
+const experience = [
+  {
+    title: "Розробник аналітичних систем / PPC Engineer",
+    company: "Renty",
+    type: "Контракт",
+    start: new Date(2018, 7),
+    end: undefined,
+    location: "ОАЕ · Дистанційно",
+    duties: [
+      "Розробка власних інструментів аналітики на Python (NLP, spaCy, Pandas)",
+      "Побудова дашбордів та data pipelines для обробки рекламних даних",
+      "Інтеграція Google Ads API для автоматизації звітності",
+      "Управління багатомовними цифровими системами",
+    ],
+    skills: ["Python", "NLP", "spaCy", "Pandas", "Google Ads API", "Google Analytics"],
+  },
+  {
+    title: "Системний аналітик / Веб-розробник",
+    company: "Фриланс",
+    type: "Самозайнятість",
+    start: new Date(2015, 4),
+    end: undefined,
+    location: "Україна",
+    duties: [
+      "Проектування та розробка веб-застосунків і аналітичних систем",
+      "Налаштування систем відстеження та збору даних (GTM, GA4)",
+      "Оптимізація конверсійних воронок та A/B тестування",
+      "Автоматизація процесів обробки даних",
+    ],
+    skills: ["Python", "JavaScript", "Google Analytics", "GTM", "A/B тестування"],
+  },
+  {
+    title: "Керівник digital-напрямку",
+    company: "matrasm",
+    type: "Повна зайнятість",
+    start: new Date(2017, 1),
+    end: new Date(2022, 1),
+    location: "Україна",
+    duties: [
+      "Побудова цифрової інфраструктури з нуля: 2 ecommerce-платформи + мережа сайтів",
+      "Управління командою, постановка технічних завдань",
+      "Розробка систем аналітики та звітності",
+      "Впровадження процесів та автоматизація рутинних задач",
+    ],
+    skills: ["Управління проєктами", "Python", "SEO", "Аналітика", "Автоматизація"],
+  },
+];
+
+const projects = [
+  {
+    name: "Advvords — аналітична платформа Google Ads",
+    desc: "Власна розробка: система аналізу пошукових термінів, оптимізації кампаній та побудови звітів.",
+    stack: ["React / SolidJS", "TypeScript", "TanStack Table", "Google Ads API", "Python"],
+  },
+];
 ---
 
 <Layout>
-  <h1>world, Resume</h1>
+  <div class="min-h-screen bg-[#f0ece3]">
+
+    <!-- ID Card -->
+    <div class="max-w-2xl mx-auto px-4 pt-10 pb-6">
+      <p class="text-xs text-[#888] mb-3 tracking-wide">Резюме</p>
+
+      <div class="rounded-2xl overflow-hidden shadow-lg">
+        <!-- Верхня темна частина -->
+        <div class="bg-[#2c2a24] px-6 pt-6 pb-8">
+          <div class="flex justify-between items-start">
+            <div>
+              <p class="text-xs text-[#c8a84b] tracking-widest uppercase mb-1">
+                Системний аналітик · Розробник · Digital-спеціаліст
+              </p>
+              <p class="text-xs text-[#888] tracking-wide">
+                Python · Web · Data Engineering · Google Ads Expert
+              </p>
+            </div>
+          </div>
+          <div class="mt-6 flex items-end gap-4">
+            <img src="/ava.png" alt="Микола Кирилович" class="w-32 h-32 rounded-xl object-cover border border-[#c8a84b]" />
+            <h1 class="text-3xl font-bold text-white leading-tight pb-1">
+              Кирилович<br />Микола
+            </h1>
+          </div>
+        </div>
+
+        <!-- Статус-бар -->
+        <div class="bg-[#c8a84b] px-6 py-2 flex items-center justify-between">
+          <span class="text-[#2c2a24] text-xs font-semibold">Готовий до служби</span>
+          <a href="https://wa.me/380673693690" class="flex items-center gap-1.5 text-[#2c2a24] text-xs font-semibold hover:opacity-70 transition-opacity">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            +380 67 369 36 90
+          </a>
+        </div>
+
+        <!-- Деталі -->
+        <div class="bg-[#f8f5ef] px-6 py-5 grid grid-cols-2 gap-4">
+          <div>
+            <p class="text-[10px] text-[#aaa] uppercase tracking-wider mb-0.5">Освіта</p>
+            <p class="text-sm font-semibold text-[#1a1a1a]">Магістр, ЖДТУ</p>
+          </div>
+          <div>
+            <p class="text-[10px] text-[#aaa] uppercase tracking-wider mb-0.5">Досвід у IT</p>
+            <p class="text-sm font-semibold text-[#1a1a1a]">{duration(new Date(2015, 4))}</p>
+          </div>
+          <div>
+            <p class="text-[10px] text-[#aaa] uppercase tracking-wider mb-0.5">Спеціальність</p>
+            <p class="text-sm font-semibold text-[#1a1a1a]">Системи управління і автоматики</p>
+          </div>
+          <div>
+            <p class="text-[10px] text-[#aaa] uppercase tracking-wider mb-0.5">Права</p>
+            <p class="text-sm font-semibold text-[#1a1a1a]">Категорія Б</p>
+          </div>
+          <div>
+            <p class="text-[10px] text-[#aaa] uppercase tracking-wider mb-0.5">Сімейний стан</p>
+            <p class="text-sm font-semibold text-[#1a1a1a]">Одружений · 2 дітей <span class="text-[#aaa] font-normal">(мріє про 4)</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-2xl mx-auto px-4 pb-16 space-y-3">
+
+      <!-- Освіта -->
+      <div class="rounded-2xl overflow-hidden">
+        <div class="bg-[#2c2a24] px-5 py-4">
+          <p class="text-white font-bold text-base">Освіта</p>
+        </div>
+        <div class="bg-[#f8f5ef] px-5 py-4">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex-1">
+              <p class="font-semibold text-[#1a1a1a] text-sm">Магістр з відзнакою</p>
+              <p class="text-xs text-[#888] mt-0.5">ЖДТУ · Системи управління і автоматики</p>
+              <p class="text-xs text-[#555] mt-2">Наукова робота: пошук оптимальних маршрутів задачі комівояжера</p>
+            </div>
+            <span class="text-[10px] text-[#c8a84b] font-semibold shrink-0">З відзнакою</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Технічні навички -->
+      <div class="rounded-2xl overflow-hidden">
+        <div class="bg-[#2c2a24] px-5 py-4">
+          <p class="text-white font-bold text-base">Технічні навички</p>
+        </div>
+        {techSkills.map((s) => (
+          <div class="bg-[#f8f5ef] border-b border-[#ece8e0] last:border-0 px-5 py-3.5">
+            <p class="text-[10px] text-[#aaa] uppercase tracking-wider mb-0.5">{s.label}</p>
+            <p class="text-sm text-[#1a1a1a] font-medium">{s.value}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Власні проєкти -->
+      <div class="rounded-2xl overflow-hidden">
+        <div class="bg-[#2c2a24] px-5 py-4">
+          <p class="text-white font-bold text-base">Власні розробки</p>
+        </div>
+        {projects.map((p) => (
+          <div class="bg-[#f8f5ef] border-b border-[#ece8e0] last:border-0 px-5 py-4">
+            <p class="font-semibold text-[#1a1a1a] text-sm">{p.name}</p>
+            <p class="text-xs text-[#555] mt-1">{p.desc}</p>
+            <div class="flex flex-wrap gap-1 mt-2">
+              {p.stack.map((t) => (
+                <span class="text-[10px] bg-[#ece8e0] text-[#666] px-2 py-0.5 rounded-full">{t}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Досвід -->
+      <div class="rounded-2xl overflow-hidden">
+        <div class="bg-[#2c2a24] px-5 py-4">
+          <p class="text-white font-bold text-base">Досвід роботи</p>
+        </div>
+        {experience.map((job) => (
+          <div class="bg-[#f8f5ef] border-b border-[#ece8e0] last:border-0 px-5 py-4">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex-1">
+                <p class="font-semibold text-[#1a1a1a] text-sm leading-snug">{job.title}</p>
+                <p class="text-xs text-[#888] mt-0.5">{job.company}{job.type ? ` · ${job.type}` : ""}</p>
+                <p class="text-xs text-[#aaa] mt-0.5">{job.location}</p>
+                <ul class="mt-2 space-y-1">
+                  {job.duties.map((d) => (
+                    <li class="text-xs text-[#555] flex gap-1.5">
+                      <span class="text-[#c8a84b] shrink-0">—</span>
+                      <span>{d}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div class="text-right shrink-0">
+                <p class="text-[10px] text-[#c8a84b] font-semibold">{duration(job.start, job.end)}</p>
+                <p class="text-[10px] text-[#aaa] mt-0.5">{formatDate(job.start)}</p>
+                <p class="text-[10px] text-[#aaa]">{job.end ? formatDate(job.end) : "тепер"}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Сертифікати -->
+      <div class="rounded-2xl overflow-hidden">
+        <div class="bg-[#2c2a24] px-5 py-4">
+          <p class="text-white font-bold text-base">Сертифікати</p>
+        </div>
+        {[
+          "Python for Network Engineers",
+          "Power BI",
+          "Google Partner",
+          "Advanced Python",
+          "Python for Data Analyst",
+          "Web Dev for Beginners",
+          "VueJS. Advanced WebDev",
+        ].map((cert) => (
+          <div class="bg-[#f8f5ef] border-b border-[#ece8e0] last:border-0 px-5 py-4 flex items-center justify-between">
+            <span class="text-[#1a1a1a] font-medium text-sm">{cert}</span>
+            <span class="text-[#c8a84b]">›</span>
+          </div>
+        ))}
+      </div>
+
+    </div>
+
+    <!-- Футер -->
+    <div class="bg-[#2c2a24] px-6 py-5 flex items-center justify-between">
+      <span class="text-[#888] text-xs">Кирилович Микола · {Math.floor((new Date().getTime() - new Date(1989, 0, 24).getTime()) / (1000 * 60 * 60 * 24 * 365.25))} р. · {new Date().getFullYear()}</span>
+      <a href="https://wa.me/380673693690" class="flex items-center gap-2 text-[#c8a84b] text-sm font-semibold hover:opacity-70 transition-opacity">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        +380 67 369 36 90
+      </a>
+    </div>
+
+  </div>
 </Layout>
