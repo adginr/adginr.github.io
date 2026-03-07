@@ -5,6 +5,25 @@
   print-color-adjust: exact;
 }
 
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-text {
+  display: inline-block;
+  animation: marquee 10s linear infinite;
+}
+
+.marquee-wrapper:hover .marquee-text {
+  animation-play-state: paused;
+}
+
 @media print {
   body {
     background: white !important;
@@ -98,6 +117,11 @@
   .print-columns .px-6 {
     padding-left: 10px !important;
     padding-right: 10px !important;
+  }
+
+  .marquee-text {
+    animation: none !important;
+    transform: none !important;
   }
 
 }
