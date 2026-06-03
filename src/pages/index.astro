@@ -90,6 +90,8 @@ const projects = [
     stack: ["Python", "Pandas", "Google Ads API", "GA4 API", "Google Sheets API"],
   },
 ];
+
+const militaryStatus = "Отримав рішення ВЛК від 25.05.2026 · стаття 54Б";
 ---
 
 <Layout>
@@ -139,7 +141,7 @@ const projects = [
         <!-- Статус-бар -->
         <div class="bg-[#c8a84b] py-1 overflow-hidden">
           <div class="marquee-wrapper">
-            <span class="marquee-text text-[#2c2a24] text-xs font-semibold">95 ДШВ · Подав документи на отримання статусу «обмежено придатний» · {new Date().toLocaleDateString("uk-UA", { day: "2-digit", month: "2-digit", year: "numeric" })}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;95 ДШВ · Подав документи на отримання статусу «обмежено придатний» · {new Date().toLocaleDateString("uk-UA", { day: "2-digit", month: "2-digit", year: "numeric" })}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span class="marquee-text text-[#2c2a24] text-xs font-semibold">95 ДШВ · {militaryStatus} · {new Date().toLocaleDateString("uk-UA", { day: "2-digit", month: "2-digit", year: "numeric" })}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;95 ДШВ · {militaryStatus} · {new Date().toLocaleDateString("uk-UA", { day: "2-digit", month: "2-digit", year: "numeric" })}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
           </div>
         </div>
 
@@ -164,6 +166,10 @@ const projects = [
           <div>
             <p class="text-[10px] text-[#aaa] uppercase tracking-wider mb-0.5">Сімейний стан</p>
             <p class="text-sm font-semibold text-[#1a1a1a]">Одружений · 2 дітей <span class="text-[#aaa] font-normal">(мріє про 4)</span></p>
+          </div>
+          <div class="col-span-2">
+            <p class="text-[10px] text-[#aaa] uppercase tracking-wider mb-0.5">ВЛК</p>
+            <p class="text-sm font-semibold text-[#1a1a1a]">Рішення від 25.05.2026 · стаття 54Б</p>
           </div>
         </div>
       </div>
@@ -199,6 +205,34 @@ const projects = [
             <p class="text-sm text-[#1a1a1a] font-medium">{s.value}</p>
           </div>
         ))}
+      </div>
+
+      <!-- По суті -->
+      <div class="rounded-2xl overflow-hidden">
+        <div class="bg-[#2c2a24] px-5 py-4">
+          <p class="text-white font-bold text-base">По суті</p>
+        </div>
+        <div class="bg-[#f8f5ef] px-5 py-4 space-y-2">
+          <p class="text-xs text-[#555] leading-relaxed">
+            ІТ-фахівець з досвідом розробки, автоматизації, аналітики даних та
+            роботи з інструментами штучного інтелекту. Працював з українськими
+            та міжнародними клієнтами, зокрема з країн Персидської затоки.
+          </p>
+          <p class="text-xs text-[#555] leading-relaxed">
+            У бригаді вже застосував цей досвід практично: за два місяці
+            цифровізував штатний розпис на понад 5200 посад і впровадив його у
+            роботі фінансового відділу.
+          </p>
+          <p class="text-xs text-[#555] leading-relaxed">
+            Наразі перебуваю у післяопераційному періоді відновлення, тому
+            потребую щадного режиму: обмеження фізичних навантажень протягом
+            6–9 місяців і дотримання призначеної лікарями дієти.
+          </p>
+          <p class="text-xs text-[#555] leading-relaxed">
+            Найбільшу користь можу принести в цифровізації, автоматизації
+            процесів, обробці даних та інформаційно-аналітичній роботі.
+          </p>
+        </div>
       </div>
 
       <!-- Власні проєкти -->
