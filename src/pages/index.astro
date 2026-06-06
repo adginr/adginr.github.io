@@ -34,7 +34,7 @@ const experience = [
     type: "Контракт",
     start: new Date(2018, 7),
     end: undefined,
-    location: "ОАЕ · Дистанційно",
+    location: "ОАЕ • Дистанційно",
     duties: [
       "Розробка власних інструментів аналітики на Python (NLP, spaCy, Pandas)",
       "Побудова дашбордів та data pipelines для обробки рекламних даних",
@@ -90,13 +90,13 @@ const projects = [
   },
 ];
 
-const militaryStatus = "Отримав рішення ВЛК від 25.05.2026 · стаття 54Б";
+const militaryStatus = "Отримав рішення ВЛК від 25.05.2026 • стаття 54Б";
 const statusDate = new Date().toLocaleDateString("uk-UA", {
   day: "2-digit",
   month: "2-digit",
   year: "numeric",
 });
-const statusLine = `95 ДШВ · ${militaryStatus} · ${statusDate}`;
+const statusLine = `95 ДШВ • ${militaryStatus} • ${statusDate}`;
 ---
 
 <Layout>
@@ -131,10 +131,10 @@ const statusLine = `95 ДШВ · ${militaryStatus} · ${statusDate}`;
             <img src="/ava.png" alt="Микола Кирилович" class="w-32 h-32 rounded-xl object-cover border border-[#c8a84b] shrink-0" />
             <div>
               <p class="text-xs text-[#c8a84b] tracking-widest uppercase mb-1">
-                Системний аналітик · Розробник · Digital-спеціаліст
+                Системний аналітик • Розробник • Digital-спеціаліст
               </p>
               <p class="text-xs text-[#888] tracking-wide mb-3">
-                Python · Web · Data Engineering · Google Ads Expert
+                Python • Web • Data Engineering • Google Ads Expert
               </p>
               <h1 class="text-xl text-white leading-tight uppercase">
                 Кирилович<br />Микола
@@ -157,7 +157,7 @@ const statusLine = `95 ДШВ · ${militaryStatus} · ${statusDate}`;
         <div class="bg-[#f8f5ef] px-6 py-5 grid grid-cols-2 gap-4">
           <div class="col-span-2">
             <p class="text-[10px] text-[#aaa] uppercase tracking-wider mb-0.5">Освіта</p>
-            <p class="text-sm font-semibold text-[#1a1a1a]">Магістр з відзнакою, ЖДТУ · Системи управління і автоматики</p>
+            <p class="text-sm font-semibold text-[#1a1a1a]">Магістр з відзнакою, ЖДТУ • Системи управління і автоматики</p>
           </div>
           <div>
             <p class="text-[10px] text-[#aaa] uppercase tracking-wider mb-0.5">Досвід у IT</p>
@@ -169,7 +169,7 @@ const statusLine = `95 ДШВ · ${militaryStatus} · ${statusDate}`;
           </div>
           <div>
             <p class="text-[10px] text-[#aaa] uppercase tracking-wider mb-0.5">Сімейний стан</p>
-            <p class="text-sm font-semibold text-[#1a1a1a]">Одружений · 2 дітей <span class="text-[#aaa] font-normal">(мріє про 4)</span></p>
+            <p class="text-sm font-semibold text-[#1a1a1a]">Одружений • 2 дітей <span class="text-[#aaa] font-normal">(мріє про 4)</span></p>
           </div>
         </div>
       </div>
@@ -270,7 +270,7 @@ const statusLine = `95 ДШВ · ${militaryStatus} · ${statusDate}`;
             <div class="flex items-start justify-between gap-3">
               <div class="flex-1">
                 <p class="font-semibold text-[#1a1a1a] text-sm leading-snug">{job.title}</p>
-                <p class="text-xs text-[#888] mt-0.5">{job.company}{job.type ? ` · ${job.type}` : ""}</p>
+                <p class="text-xs text-[#888] mt-0.5">{job.company}{job.type ? ` • ${job.type}` : ""}</p>
                 <p class="text-xs text-[#aaa] mt-0.5">{job.location}</p>
                 <ul class="mt-2 space-y-1">
                   {job.duties.map((d) => (
@@ -296,9 +296,9 @@ const statusLine = `95 ДШВ · ${militaryStatus} · ${statusDate}`;
     <!-- Футер -->
     <div class="bg-[#2c2a24] px-6 py-5">
       <p class="text-[#bbb] text-xs mb-1">У вільний час — кава, книги з історії та філософії</p>
-      <p class="text-[#bbb] text-xs mb-4">Не вживаю алкоголь · не палю</p>
+      <p class="text-[#bbb] text-xs mb-4">Не вживаю алкоголь • не палю</p>
       <div class="flex items-center justify-between">
-      <span class="text-[#888] text-xs">Микола · {Math.floor((new Date().getTime() - new Date(1989, 0, 24).getTime()) / (1000 * 60 * 60 * 24 * 365.25))} р.</span>
+      <span class="text-[#888] text-xs">Микола • {Math.floor((new Date().getTime() - new Date(1989, 0, 24).getTime()) / (1000 * 60 * 60 * 24 * 365.25))} р.</span>
       <a href="https://wa.me/380673693690" class="flex items-center gap-2 text-[#c8a84b] text-sm font-semibold underline underline-offset-2 hover:opacity-70 transition-opacity">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>

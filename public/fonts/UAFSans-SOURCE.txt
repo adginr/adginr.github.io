@@ -1,0 +1,6 @@
+UAF Sans Regular subset
+
+Source checked: OnlineWebFonts mirror of QUDFWB+UAFSans-Regular.
+Original copyright notice shown by source: (c) 2022 Armed Forces of Ukraine. All rights reserved.
+The public source exposes only a subset font, not the full official UAF Sans family.
+The site uses this Regular face with browser-synthesized weights.
