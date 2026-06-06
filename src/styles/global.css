@@ -24,6 +24,13 @@
   animation-play-state: paused;
 }
 
+.max-w-2xl > .rounded-2xl,
+.print-columns > .rounded-2xl {
+  box-shadow:
+    0 18px 40px rgba(44, 42, 36, 0.1),
+    0 0 0 1px rgba(44, 42, 36, 0.08);
+}
+
 @media (min-width: 640px) {
   .tech-skill-item:nth-child(odd),
   .cert-item:nth-child(odd) {
