@@ -27,6 +27,15 @@ const techSkills = [
   { label: "Інтерес до інженерії", value: "C-подібні мови, Raspberry Pi, прошивка мобільних пристроїв, RC-моделі" },
 ];
 
+const certificates = [
+  "Python for Network Engineers",
+  "Power BI",
+  "Google Partner",
+  "Advanced Python",
+  "Python for Data Analyst",
+  "Web Dev for Beginners, VueJS Advanced",
+];
+
 const experience = [
   {
     title: "Розробник аналітичних систем / PPC Engineer",
@@ -248,16 +257,8 @@ const statusLine = `95 ДШВ • ${militaryStatus} • ${statusDate}`;
           <p class="text-white font-bold text-base">Сертифікати</p>
         </div>
         <div class="cert-grid grid sm:grid-cols-2">
-          {[
-            "Python for Network Engineers",
-            "Power BI",
-            "Google Partner",
-            "Advanced Python",
-            "Python for Data Analyst",
-            "Web Dev for Beginners",
-            "VueJS. Advanced WebDev",
-          ].map((cert) => (
-            <div class="cert-item bg-[#f8f5ef] border-b border-[#ece8e0] px-5 py-4">
+          {certificates.map((cert) => (
+            <div class={`cert-item bg-[#f8f5ef] border-b border-[#ece8e0] px-5 py-4 ${cert === certificates[certificates.length - 1] && certificates.length % 2 === 1 ? "cert-wide" : ""}`}>
               <span class="text-[#1a1a1a] font-medium text-sm">{cert}</span>
             </div>
           ))}

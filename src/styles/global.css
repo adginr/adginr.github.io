@@ -50,7 +50,7 @@ body {
   }
 
   .tech-skill-wide,
-  .cert-item:last-child {
+  .cert-wide {
     grid-column: 1 / -1;
     border-right: 0;
   }
@@ -155,7 +155,7 @@ body {
   }
 
   .tech-skill-wide,
-  .cert-item:last-child {
+  .cert-wide {
     grid-column: 1 / -1 !important;
     border-right: 0 !important;
   }
