@@ -1,0 +1,7 @@
+e-Ukraine typeface
+
+Designer: Dmytro Rastvortsev
+Foundry/commission: Fedoriv Agency for the Ministry of Digital Transformation of Ukraine
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+Official page: https://thedigital.gov.ua/fonts/
+Files mirrored from: https://github.com/bennetfabian/e-Ukraine
