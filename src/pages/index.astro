@@ -92,6 +92,12 @@ const projects = [
 ];
 
 const militaryStatus = "Отримав рішення ВЛК від 25.05.2026 · стаття 54Б";
+const statusDate = new Date().toLocaleDateString("uk-UA", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+});
+const statusLine = `95 ДШВ · ${militaryStatus} · ${statusDate}`;
 ---
 
 <Layout>
@@ -141,7 +147,10 @@ const militaryStatus = "Отримав рішення ВЛК від 25.05.2026 �
         <!-- Статус-бар -->
         <div class="bg-[#c8a84b] py-1 overflow-hidden">
           <div class="marquee-wrapper">
-            <span class="marquee-text text-[#2c2a24] text-xs font-semibold">95 ДШВ · {militaryStatus} · {new Date().toLocaleDateString("uk-UA", { day: "2-digit", month: "2-digit", year: "numeric" })}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;95 ДШВ · {militaryStatus} · {new Date().toLocaleDateString("uk-UA", { day: "2-digit", month: "2-digit", year: "numeric" })}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span class="marquee-text text-[#2c2a24] text-xs font-semibold">
+              <span>{statusLine}</span>
+              <span class="marquee-repeat" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{statusLine}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </span>
           </div>
         </div>
 
@@ -166,10 +175,6 @@ const militaryStatus = "Отримав рішення ВЛК від 25.05.2026 �
           <div>
             <p class="text-[10px] text-[#aaa] uppercase tracking-wider mb-0.5">Сімейний стан</p>
             <p class="text-sm font-semibold text-[#1a1a1a]">Одружений · 2 дітей <span class="text-[#aaa] font-normal">(мріє про 4)</span></p>
-          </div>
-          <div class="col-span-2">
-            <p class="text-[10px] text-[#aaa] uppercase tracking-wider mb-0.5">ВЛК</p>
-            <p class="text-sm font-semibold text-[#1a1a1a]">Рішення від 25.05.2026 · стаття 54Б</p>
           </div>
         </div>
       </div>
@@ -199,12 +204,14 @@ const militaryStatus = "Отримав рішення ВЛК від 25.05.2026 �
         <div class="bg-[#2c2a24] px-5 py-4">
           <p class="text-white font-bold text-base">Технічні навички</p>
         </div>
-        {techSkills.map((s) => (
-          <div class="bg-[#f8f5ef] border-b border-[#ece8e0] last:border-0 px-5 py-3.5">
-            <p class="text-[10px] text-[#aaa] uppercase tracking-wider mb-0.5">{s.label}</p>
-            <p class="text-sm text-[#1a1a1a] font-medium">{s.value}</p>
-          </div>
-        ))}
+        <div class="tech-grid grid sm:grid-cols-2">
+          {techSkills.map((s) => (
+            <div class="tech-skill-item bg-[#f8f5ef] border-b border-[#ece8e0] px-5 py-3.5">
+              <p class="text-[10px] text-[#aaa] uppercase tracking-wider mb-0.5">{s.label}</p>
+              <p class="text-sm text-[#1a1a1a] font-medium">{s.value}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       <!-- По суті -->
@@ -258,20 +265,21 @@ const militaryStatus = "Отримав рішення ВЛК від 25.05.2026 �
         <div class="bg-[#2c2a24] px-5 py-4">
           <p class="text-white font-bold text-base">Сертифікати</p>
         </div>
-        {[
-          "Python for Network Engineers",
-          "Power BI",
-          "Google Partner",
-          "Advanced Python",
-          "Python for Data Analyst",
-          "Web Dev for Beginners",
-          "VueJS. Advanced WebDev",
-        ].map((cert) => (
-          <div class="bg-[#f8f5ef] border-b border-[#ece8e0] last:border-0 px-5 py-4 flex items-center justify-between">
-            <span class="text-[#1a1a1a] font-medium text-sm">{cert}</span>
-            <span class="text-[#c8a84b]">›</span>
-          </div>
-        ))}
+        <div class="cert-grid grid sm:grid-cols-2">
+          {[
+            "Python for Network Engineers",
+            "Power BI",
+            "Google Partner",
+            "Advanced Python",
+            "Python for Data Analyst",
+            "Web Dev for Beginners",
+            "VueJS. Advanced WebDev",
+          ].map((cert) => (
+            <div class="cert-item bg-[#f8f5ef] border-b border-[#ece8e0] px-5 py-4">
+              <span class="text-[#1a1a1a] font-medium text-sm">{cert}</span>
+            </div>
+          ))}
+        </div>
       </div>
 
       <!-- Досвід -->

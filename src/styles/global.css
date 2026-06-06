@@ -24,11 +24,34 @@
   animation-play-state: paused;
 }
 
+@media (min-width: 640px) {
+  .tech-skill-item:nth-child(odd),
+  .cert-item:nth-child(odd) {
+    border-right: 1px solid #ece8e0;
+  }
+
+  .tech-skill-item:last-child,
+  .cert-item:last-child {
+    grid-column: 1 / -1;
+    border-right: 0;
+  }
+}
+
 @media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+
+  html {
+    background: white !important;
+  }
+
   body {
     background: white !important;
     margin: 0 !important;
     padding: 0 !important;
+    color: #1a1a1a !important;
   }
 
   .no-print {
@@ -48,6 +71,7 @@
 
   .max-w-2xl {
     max-width: 100% !important;
+    width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
   }
@@ -82,10 +106,11 @@
     margin-bottom: 8px !important;
   }
 
-  /* 2 колонки для блоків після ID-картки */
   .print-columns {
-    columns: 2 !important;
-    column-gap: 12px !important;
+    columns: auto !important;
+    column-count: 1 !important;
+    column-gap: 0 !important;
+    display: block !important;
   }
 
   /* скинути space-y-3 margin */
@@ -94,8 +119,26 @@
   }
 
   .print-columns > * {
-    break-inside: avoid;
+    break-inside: auto !important;
+    page-break-inside: auto !important;
     margin-bottom: 8px !important;
+  }
+
+  .tech-grid,
+  .cert-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .tech-skill-item:nth-child(odd),
+  .cert-item:nth-child(odd) {
+    border-right: 1px solid #ece8e0 !important;
+  }
+
+  .tech-skill-item:last-child,
+  .cert-item:last-child {
+    grid-column: 1 / -1 !important;
+    border-right: 0 !important;
   }
 
   /* зменшити padding всередині блоків */
@@ -121,7 +164,18 @@
 
   .marquee-text {
     animation: none !important;
+    display: block !important;
     transform: none !important;
+    white-space: normal !important;
+  }
+
+  .marquee-repeat {
+    display: none !important;
+  }
+
+  .marquee-wrapper {
+    overflow: visible !important;
+    white-space: normal !important;
   }
 
 }
