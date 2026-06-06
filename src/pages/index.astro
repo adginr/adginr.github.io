@@ -20,7 +20,6 @@ function formatDate(d: Date): string {
 
 const techSkills = [
   { label: "Мови програмування", value: "Python, JavaScript, TypeScript" },
-  { label: "Іноземні мови", value: "Англійська — розмовний рівень" },
   { label: "Веб-розробка", value: "React, SolidJS, Vue.js, Astro, Next.js" },
   { label: "Аналітика даних", value: "Pandas, spaCy, NLP, Google Ads API" },
   { label: "Автоматизація", value: "Python-скрипти, парсинг, дашборди" },
@@ -160,6 +159,10 @@ const statusLine = `95 ДШВ • ${militaryStatus} • ${statusDate}`;
             <p class="text-sm font-semibold text-[#1a1a1a]">Магістр з відзнакою, ЖДТУ • Системи управління і автоматики</p>
           </div>
           <div>
+            <p class="text-[10px] text-[#aaa] uppercase tracking-wider mb-0.5">Іноземні мови</p>
+            <p class="text-sm font-semibold text-[#1a1a1a]">Англійська — розмовний рівень</p>
+          </div>
+          <div>
             <p class="text-[10px] text-[#aaa] uppercase tracking-wider mb-0.5">Досвід у IT</p>
             <p class="text-sm font-semibold text-[#1a1a1a]">{duration(new Date(2015, 4))}</p>
           </div>
@@ -184,7 +187,7 @@ const statusLine = `95 ДШВ • ${militaryStatus} • ${statusDate}`;
         </div>
         <div class="tech-grid grid sm:grid-cols-2">
           {techSkills.map((s) => (
-            <div class="tech-skill-item bg-[#f8f5ef] border-b border-[#ece8e0] px-5 py-3.5">
+            <div class={`tech-skill-item bg-[#f8f5ef] border-b border-[#ece8e0] px-5 py-3.5 ${s.label === "Інтерес до інженерії" ? "tech-skill-wide" : ""}`}>
               <p class="text-[10px] text-[#aaa] uppercase tracking-wider mb-0.5">{s.label}</p>
               <p class="text-sm text-[#1a1a1a] font-medium">{s.value}</p>
             </div>

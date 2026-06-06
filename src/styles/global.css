@@ -49,6 +49,7 @@ body {
     border-right: 1px solid #ece8e0;
   }
 
+  .tech-skill-wide,
   .cert-item:last-child {
     grid-column: 1 / -1;
     border-right: 0;
@@ -153,6 +154,7 @@ body {
     border-right: 1px solid #ece8e0 !important;
   }
 
+  .tech-skill-wide,
   .cert-item:last-child {
     grid-column: 1 / -1 !important;
     border-right: 0 !important;
