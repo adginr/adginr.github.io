@@ -22,7 +22,8 @@ const techSkills = [
   { label: "Мови програмування", value: "Python, JavaScript, TypeScript" },
   { label: "Веб-розробка", value: "React, SolidJS, Vue.js, Astro, Next.js" },
   { label: "Аналітика даних", value: "Pandas, spaCy, NLP, Google Ads API" },
-  { label: "Автоматизація", value: "Python-скрипти, парсинг, дашборди" },
+  { label: "Автоматизація", value: "Python-скрипти, парсинг, дашборди, Excel-звіти" },
+  { label: "ШІ", value: "OpenAI, Claude Code" },
   { label: "Інтерес до інженерії", value: "C-подібні мови, Raspberry Pi (збирання та налаштування), прошивка мобільних пристроїв, збирання та програмування RC-машинок" },
 ];
 
@@ -187,7 +188,7 @@ const statusLine = `95 ДШВ • ${militaryStatus} • ${statusDate}`;
         </div>
         <div class="tech-grid grid sm:grid-cols-2">
           {techSkills.map((s) => (
-            <div class={`tech-skill-item bg-[#f8f5ef] border-b border-[#ece8e0] px-5 py-3.5 ${s.label === "Інтерес до інженерії" ? "tech-skill-wide" : ""}`}>
+            <div class={`tech-skill-item bg-[#f8f5ef] border-b border-[#ece8e0] px-5 py-3.5 ${s.label === "Інтерес до інженерії" && techSkills.length % 2 === 1 ? "tech-skill-wide" : ""}`}>
               <p class="text-[10px] text-[#aaa] uppercase tracking-wider mb-0.5">{s.label}</p>
               <p class="text-sm text-[#1a1a1a] font-medium">{s.value}</p>
             </div>
